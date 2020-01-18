@@ -27,6 +27,18 @@ class App extends Component {
     })
   };
 
+  nameChangedHandler = (event) => {
+    this.setState({
+      persons: [
+        { name: 'Rodolfo', age: 32 },
+        { name: event.target.value, age: 45 },
+        { name: 'Cesar Laparque', age: 21 }
+      ],
+      otherState: 'something else'
+    })
+
+  };
+
   render() {
     return (
       <div className="App">
@@ -41,7 +53,8 @@ class App extends Component {
           name={this.state.persons[1].name} 
           age={this.state.persons[1].age}
                                       //Second way of passing method references
-          click={this.switchNameHandler.bind(this, 'Rodo')}>I'm Venezuelan</Person>
+          click={this.switchNameHandler.bind(this, 'Rodo')}
+          changed={this.nameChangedHandler}>I'm Venezuelan</Person>
         <Person 
           name={this.state.persons[2].name} 
           age={this.state.persons[2].age} />
