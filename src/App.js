@@ -15,11 +15,11 @@ class App extends Component {
     ]
   }
 
-  switchNameHandler = () => {
+  switchNameHandler = (newName) => {
     // DON'T DO THIS: this.state.persons[0].name = 'Rodolfo Joham';
     this.setState({
       persons: [
-        { name: 'Rodolfo Joham', age: 32 },
+        { name: newName, age: 32 },
         { name: 'Juan Lapass', age: 45 },
         { name: 'Cesar Laparque', age: 21 }
       ],
@@ -31,11 +31,20 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi, I'm Rodolfo</h1>
-        <p>This is a test</p>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>I'm Venezuelan</Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+        <p>This is a test</p>  
+        <button onClick={() => this.switchNameHandler('Rodito') //First way of passing method references
+                                                                }>Switch Name</button>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age} />
+        <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age}
+                                      //Second way of passing method references
+          click={this.switchNameHandler.bind(this, 'Rodo')}>I'm Venezuelan</Person>
+        <Person 
+          name={this.state.persons[2].name} 
+          age={this.state.persons[2].age} />
       </div>
     );
 
