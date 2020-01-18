@@ -40,11 +40,21 @@ class App extends Component {
   };
 
   render() {
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '4px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     return (
       <div className="App">
         <h1>Hi, I'm Rodolfo</h1>
         <p>This is a test</p>  
-        <button onClick={() => this.switchNameHandler('Rodito') //First way of passing method references
+        <button 
+          style={style}
+          onClick={() => this.switchNameHandler('Rodito') //First way of passing method references
                                                                 }>Switch Name</button>
         <Person 
           name={this.state.persons[0].name} 
