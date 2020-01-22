@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Radium from 'radium';
 import './App.css';
 import Person from './Person/Person';
 
@@ -56,6 +57,8 @@ class App extends Component {
   };
 
 
+  // npm install --save radium
+  // to add any pseudo selector
   render() {
     const style = {
       backgroundColor: 'green',
@@ -63,7 +66,12 @@ class App extends Component {
       font: 'inherit',
       border: '2px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor: 'lightgreen',
+        color: 'black'
+
+      }
     };
 
     let person = null;
@@ -83,6 +91,10 @@ class App extends Component {
       );
 
       style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor: 'salmon',
+        color: 'black'
+      }
 
     }
 
@@ -111,4 +123,5 @@ class App extends Component {
   }
 }
 
-export default App;
+// higher order component 
+export default Radium(App);
