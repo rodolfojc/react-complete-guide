@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import Radium, { StyleRoot } from 'radium';
+// npm install --save radium
+//import Radium, { StyleRoot } from 'radium';
+
+//npm install --save styled-components
+import styled from 'styled-components';
+
 import './App.css';
 import Person from './Person/Person';
 
@@ -110,7 +115,7 @@ class App extends Component {
     }
 
     return (
-      <StyleRoot>
+      
       <div className="App">
         <h1>Hi, I'm Rodolfo</h1>        
         <p className={classes.join(' ')}>Let's code!!</p>  
@@ -119,10 +124,9 @@ class App extends Component {
           onClick={this.togglePersonHandler}>Toggle Persons</button>
         {person}
       </div>
-      </StyleRoot>);
-  
-  }
+      );
+   }
 }
 
 // higher order component 
-export default Radium(App);
+export default App;
