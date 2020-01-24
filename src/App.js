@@ -1,33 +1,13 @@
 import React, { Component } from 'react';
-// npm install --save radium
-//import Radium, { StyleRoot } from 'radium';
-
-//npm install --save styled-components
-import styled from 'styled-components';
 
 import './App.css';
 import Person from './Person/Person';
 
-const StyledButton = styled.button`
-  background-color: ${props => props.alt ? 'red': 'green'};
-  color: white;
-  font: inherit;
-  border: 2px solid blue;
-  padding: 8px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${props => props.alt ? 'salmon': 'yellow'};
-    color: black;
-  }
-  `;
 
 // Class based Component 
 class App extends Component {
 
-  // Defining properties in Class Based Conponents - Extends Components
-  // Reserved Word - STATE
-  state = {
+   state = {
     persons: [
       { id: 1, name: 'Rodolfo', age: 32 },
       { id: 2, name: 'Juan', age: 45 },
@@ -39,9 +19,7 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    //Differente ways
-    //const persons = this.state.persons.slice();
-    //Spread way
+    
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
     this.setState({persons: persons});
@@ -108,13 +86,6 @@ class App extends Component {
           })}
         </div>
       );
-
-      // style.backgroundColor = 'red';
-      // style[':hover'] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // }
-
     }
 
     // Array of Classes - Names 
@@ -133,16 +104,15 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm Rodolfo</h1>        
         <p className={classes.join(' ')}>Let's code!!</p>  
-        <StyledButton 
+        <button className="button"
           alt={this.state.showPerson}
           onClick={this.togglePersonHandler}>
           Toggle Persons
-        </StyledButton> 
+        </button>
         {person}
       </div>
       );
    }
 }
 
-// higher order component 
 export default App;
