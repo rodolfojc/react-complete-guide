@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 
 
@@ -57,21 +57,9 @@ class App extends Component {
   // npm install --save radium
   // to add any pseudo selector
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '2px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-
-      }
-    };
-
+    
     let person = null;
+    let btnClass = [classes.Button];
 
     if(this.state.showPerson) {
       person = (
@@ -86,25 +74,28 @@ class App extends Component {
           })}
         </div>
       );
+    
+      btnClass.push(classes.Red);
+
     }
 
     // Array of Classes - Names 
     // const classes = ['red', 'bold'].join(' ');
-    const classes = [];
+    const assignedClasses = [];
 
     if (this.state.persons.length <= 2) {
-      classes.push('red'); //classes = ['red']
+      assignedClasses.push(classes.red); //classes = ['red']
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold'); // classes = ['red', bold]
+      assignedClasses.push(classes.bold); // classes = ['red', bold]
     }
 
     return (
       
-      <div className="App">
+      <div className={classes.App}>
         <h1>Hi, I'm Rodolfo</h1>        
-        <p className={classes.join(' ')}>Let's code!!</p>  
-        <button className="button"
+        <p className={assignedClasses.join(' ')}>Let's code!!</p>  
+        <button className={btnClass.join(' ')}
           alt={this.state.showPerson}
           onClick={this.togglePersonHandler}>
           Toggle Persons
