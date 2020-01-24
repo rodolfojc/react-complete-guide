@@ -3,24 +3,24 @@ import React, { Component } from 'react';
 //import Radium, { StyleRoot } from 'radium';
 
 //npm install --save styled-components
-//import styled from 'styled-components';
+import styled from 'styled-components';
 
 import './App.css';
 import Person from './Person/Person';
 
-// const StyledButton = styled.button`
-//   background-color: ${props => props.alt ? 'red': 'green'};
-//   color: white;
-//   font: inherit;
-//   border: 2px solid blue;
-//   padding: 8px;
-//   cursor: pointer;
+const StyledButton = styled.button`
+  background-color: ${props => props.alt ? 'red': 'green'};
+  color: white;
+  font: inherit;
+  border: 2px solid blue;
+  padding: 8px;
+  cursor: pointer;
 
-//   &:hover {
-//     background-color: ${props => props.alt ? 'salmon': 'yellow'};
-//     color: black;
-//   }
-//   `;
+  &:hover {
+    background-color: ${props => props.alt ? 'salmon': 'yellow'};
+    color: black;
+  }
+  `;
 
 // Class based Component 
 class App extends Component {
@@ -133,11 +133,11 @@ class App extends Component {
       <div className="App">
         <h1>Hi, I'm Rodolfo</h1>        
         <p className={classes.join(' ')}>Let's code!!</p>  
-        
+        <StyledButton 
           alt={this.state.showPerson}
           onClick={this.togglePersonHandler}>
           Toggle Persons
-        
+        </StyledButton> 
         {person}
       </div>
       );
