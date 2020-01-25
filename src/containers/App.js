@@ -25,13 +25,28 @@ class App extends Component {
   }
 
   static getDerivedStateFromProps (props, state) {
-    console.log('[App.js] - getDerivedStateFromProps', props);
+    console.log('[App.js] - getDerivedStateFromProps()', props);
     return state;
   }
 
+  ////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////
+                // MOST IMPORTANT HOOKS 
+
   componentDidMount () {
-    console.log('[App.js] - componentDidMount');
+    console.log('[App.js] - componentDidMount()');
   };
+
+  shouldComponentUpdate () {
+    console.log('[App.js] - shouldComponentUpdate()');
+    return true;
+  }
+  componentDidUpdate () {
+    console.log('[App.js] - componentDidUpdate()');
+  }
+
+  //////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////
 
   deletePersonHandler = (personIndex) => {
     
