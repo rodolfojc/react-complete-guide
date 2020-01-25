@@ -3,7 +3,7 @@ import classes from './Person.css';
 
 // Functional Component 
 const person = (props) => {
-
+    console.log('[Person.js] - Rendering');
     return (
         <div className={classes.Person}>     
             <p onClick= {props.click}>I'm {props.name} and I am {props.age} years old!!</p>

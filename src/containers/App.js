@@ -7,6 +7,12 @@ import Cockpit from '../components/Cockpit/Cockpit';
 // Class based Component 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    console.log('[App.js] - Constructor');
+    //this.state = {};
+  }
+
    state = {
     persons: [
       { id: 1, name: 'Rodolfo', age: 32 },
@@ -17,6 +23,15 @@ class App extends Component {
     showPerson: false
 
   }
+
+  static getDerivedStateFromProps (props, state) {
+    console.log('[App.js] - getDerivedStateFromProps', props);
+    return state;
+  }
+
+  componentDidMount () {
+    console.log('[App.js] - componentDidMount');
+  };
 
   deletePersonHandler = (personIndex) => {
     
@@ -57,7 +72,7 @@ class App extends Component {
   // npm install --save radium
   // to add any pseudo selector
   render() {
-    
+    console.log('[App.js] - render');
     let persons = null;
    
     if(this.state.showPerson) {
