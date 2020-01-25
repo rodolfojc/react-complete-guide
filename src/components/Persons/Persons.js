@@ -12,10 +12,16 @@ class Persons extends Component {
   //   return state;
   // };
 
+  // Performance automatization
   shouldComponentUpdate (nextProps, nextState) {
     console.log('[Persons.js] - shouldComponentUpdate()');
-    return true;
-  }
+
+    // It works if the pointer change - object! the location in memory
+    if ( nextProps.persons !== this.props.persons) {
+      return true;
+    }
+      return false;
+    }
 
   getSnapshotBeforeUpdate (prevProps, prevState) {
     console.log('[Persons.js] - getSnapshotBeforeUpdate()');
