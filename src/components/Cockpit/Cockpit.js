@@ -10,10 +10,17 @@ const cockpit = (props) => {
         alert('Save data to the cloud');
       }, 1000);
       return () => {
-        alert('[Cockpit] - useEffect() - Cleaning up work in useEffect()');
+        console.log('[Cockpit] - useEffect() - Cleaning up work in useEffect()');
       }
-      
+     
     }, []); // [] - empty array - just exc just one, with parameters as [props.person] - chages everytime persons changes
+
+    useEffect(() => {
+      console.log('[Cockpit] - 2nd useEffect()');
+      return () => {
+      console.log('[Cockpit] - useEffect() - Cleaning up work in 2nd useEffect()');
+      };
+    });
 
     const assignedClasses = [];
     let btnClass = '';
