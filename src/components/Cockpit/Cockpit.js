@@ -9,6 +9,9 @@ const cockpit = (props) => {
       setTimeout(() => {
         alert('Save data to the cloud');
       }, 1000);
+      return () => {
+        alert('[Cockpit] - useEffect() - Cleaning up work in useEffect()');
+      }
       
     }, []); // [] - empty array - just exc just one, with parameters as [props.person] - chages everytime persons changes
 
