@@ -3,17 +3,14 @@ import classes from './Cockpit.css';
 
 const cockpit = (props) => {
 
-    // componentDidMount and componentDidUpdate togeteher for a functional component
-    //////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////
-                  // MOST USEFULL LIFECYCLE HOOKS
-
     useEffect (() => {
       console.log('[Cockpit] - useEffect()');
       // HTTP Request.....
-    });
-
-    ///////////////////////////////////////////////////////////////////////
+      setTimeout(() => {
+        alert('Save data to the cloud');
+      }, 1000);
+      
+    }, []); // [] - empty array - just exc just one, with parameters as [props.person] - chages everytime persons changes
 
     const assignedClasses = [];
     let btnClass = '';
