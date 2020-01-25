@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
 
-// Converting Persons.js Functional to Class-based
+
+
+//            extends PureComponent (import React, { PureComponent } from 'react';)
 class Persons extends Component {
 
   // Lifecicles
