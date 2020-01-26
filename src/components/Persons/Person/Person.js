@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+
 import classes from "./Person.css";
+import withClasses from '../../../hoc/withClass';
 import Aux from "../../../hoc/Auxilliary";
 
 // Converting Person.js Functional to Class-based
@@ -23,4 +25,4 @@ class Person extends Component {
   }
 }
 
-export default Person;
+export default withClasses(Person, classes.Person);
