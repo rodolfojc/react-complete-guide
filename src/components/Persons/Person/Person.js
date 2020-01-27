@@ -5,10 +5,13 @@ import classes from "./Person.css";
 import withClasses from '../../../hoc/withClass';
 import Aux from "../../../hoc/Auxilliary";
 
-// npm install --save prop-types
-
 // Converting Person.js Functional to Class-based
 class Person extends Component {
+
+    componentDidMount() {
+      this.inputElement.focus();
+    }
+
   render() {
     console.log("[Person.js] - Rendering");
     return (
@@ -19,6 +22,7 @@ class Person extends Component {
         <p key="i2">{this.props.children}</p>
         <input
           key="i3"
+          ref={(inputEl) => {this.inputElement = inputEl}}
           type="text"
           onChange={this.props.changed}
           value={this.props.name}
