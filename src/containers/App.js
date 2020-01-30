@@ -23,7 +23,8 @@ class App extends Component {
     otherState: "something else",
     showPerson: false,
     showCockpit: true,
-    changeCounter: 0
+    changeCounter: 0,
+    authenticated: false
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -87,6 +88,10 @@ class App extends Component {
     this.setState({ showPerson: !doesShow });
   };
 
+  loginHandler = () => {
+    this.setState({authenticated: true});
+  };
+
   // npm install --save radium
   // to add any pseudo selector
   render() {
@@ -99,6 +104,7 @@ class App extends Component {
           persons={this.state.persons}
           clicked={this.deletePersonHandler}
           changed={this.nameChangedHandler}
+          isAuthenticated={this.state.authenticated}
         />
       );
     }
@@ -118,6 +124,7 @@ class App extends Component {
             showPerson={this.state.showPerson}
             personsLength={this.state.persons.length}
             clicked={this.togglePersonHandler}
+            login={this.loginHandler}
           />
         ) : null}
         {persons}
